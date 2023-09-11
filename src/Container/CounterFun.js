@@ -17,7 +17,6 @@ function CounterFun(props) {
             <button onClick={Decrement}> - </button>
             <span>{count}</span>
             <button onClick={Increment}> + </button>
-
         </div>
     );
 }
