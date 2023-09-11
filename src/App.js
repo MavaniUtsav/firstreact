@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import Home from './Home'
+import Home from './Home';
+import Profile from './props';
 
 function App() {
   return (
@@ -18,9 +19,9 @@ function App() {
         >
           Learn React Folder Structure
         </a> */}
-        <Home />
-        <Home />
-
+        {/* <Home /> */}
+        <Profile text="Hello Props!!"/>
+        <Profile profile="My Profile"/>
       </header>
     </div>
   );
