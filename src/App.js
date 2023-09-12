@@ -6,6 +6,8 @@ import CountryFun from './Container/CountryFun';
 import CounterFun from './Container/CounterFun';
 import Medicines from './Container/Medicines';
 import LifeCycleMethod from './Container/LifeCycleMethod';
+import Clock from './Container/Clock';
+import ClockFun from './Container/ClockFun';
 
 function App() {
   return (
@@ -14,7 +16,9 @@ function App() {
       {/* <Counter /> */}
       {/* <CountryFun /> */}
       {/* <Medicines /> */}
-      <LifeCycleMethod name="Australia"/>
+      {/* <LifeCycleMethod name="Australia"/> */}
+      {/* <Clock /> */}
+      <ClockFun />
     </div>
   );
 }

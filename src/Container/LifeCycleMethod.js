@@ -22,3 +22,13 @@ class LifeCycleMethod extends Component {
 }
 
 export default LifeCycleMethod;
+
+// Total In-Built Method in Component Life-Cycle
+//1. constructor
+//2. getDerivedStateFromProps
+//3. render
+//4. componentDidMount
+//5. shouldComponentUpdate
+//6. getSnapshotBeforUpdate
+//7. componentDidUpdate
+//8. componentWillUnmount
