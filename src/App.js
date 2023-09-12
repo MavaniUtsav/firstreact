@@ -5,6 +5,7 @@ import Counter from './Container/Counter';
 import CountryFun from './Container/CountryFun';
 import CounterFun from './Container/CounterFun';
 import Medicines from './Container/Medicines';
+import LifeCycleMethod from './Container/LifeCycleMethod';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       {/* <Country /> */}
       {/* <Counter /> */}
       {/* <CountryFun /> */}
-      <Medicines />
+      {/* <Medicines /> */}
+      <LifeCycleMethod name="Australia"/>
     </div>
   );
 }
