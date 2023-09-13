@@ -9,6 +9,7 @@ import LifeCycleMethod from './Container/LifeCycleMethod';
 import Clock from './Container/Clock';
 import ClockFun from './Container/ClockFun';
 import Quotes from './Container/Quotes';
+import Product from './Container/ProductPage';
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
       {/* <LifeCycleMethod name="Australia"/> */}
       {/* <Clock /> */}
       {/* <ClockFun /> */}
-      <Quotes />
+      {/* <Quotes /> */}
+      <Product />
     </div>
   );
 }
