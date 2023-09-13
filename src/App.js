@@ -8,6 +8,7 @@ import Medicines from './Container/Medicines';
 import LifeCycleMethod from './Container/LifeCycleMethod';
 import Clock from './Container/Clock';
 import ClockFun from './Container/ClockFun';
+import Quotes from './Container/Quotes';
 
 function App() {
   return (
@@ -15,10 +16,11 @@ function App() {
       {/* <Country /> */}
       {/* <Counter /> */}
       {/* <CountryFun /> */}
-      <Medicines />
+      {/* <Medicines /> */}
       {/* <LifeCycleMethod name="Australia"/> */}
       {/* <Clock /> */}
       {/* <ClockFun /> */}
+      <Quotes />
     </div>
   );
 }

@@ -65,12 +65,11 @@ function Medicines(props) {
   const [isload, setLoad] = useState(true);
 
   useEffect(() => {
-
     //3. componentDidMount //5. componentDidUpdate
     setTimeout(() => {
       setLoad(false);
       console.log("Mount/Update");
-    }, 5000);
+    }, 3000);
 
     return() => {
       //6.    componentWillUnmount
