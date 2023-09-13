@@ -62,7 +62,7 @@ function Medicines(props) {
   ]
 
   //1. Constructor
-  const [load, setLoad] = useState(true);
+  const [isload, setLoad] = useState(true);
 
   useEffect(() => {
 
@@ -77,12 +77,12 @@ function Medicines(props) {
       console.log("componentWillUnmount");
     }
 
-  }, [load])
+  }, [isload])
 
   //2. render(Diaplay) //4.Display
   return (
     <div>
-      {load ? (<span class="loader">{console.log("FirstRender")}</span>) : (<table border="1" >
+      {isload ? (<span class="loader">{console.log("FirstRender")}</span>) : (<table border="1" >
         <thead>
           <tr>
             <th>ID</th>
