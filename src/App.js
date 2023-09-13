@@ -15,10 +15,10 @@ function App() {
       {/* <Country /> */}
       {/* <Counter /> */}
       {/* <CountryFun /> */}
-      {/* <Medicines /> */}
+      <Medicines />
       {/* <LifeCycleMethod name="Australia"/> */}
       {/* <Clock /> */}
-      <ClockFun />
+      {/* <ClockFun /> */}
     </div>
   );
 }
