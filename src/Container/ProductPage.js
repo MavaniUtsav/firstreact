@@ -4,6 +4,7 @@ import companyLogo from '../logo.png';
 function Product(props) {
     const [isLoading, setIsLoading] = useState(true);
     const [productData, setProductData] = useState([]);
+    const [filterData, setFilterData] = useState([])
     const [input, setInput] = useState("");
 
     const getData = async () => {
@@ -18,19 +19,16 @@ function Product(props) {
 
     }
 
-    const fetchData = async (value) => {
+    const handleInput = (value) => {
+        setInput(value);
+        // fetchData(value)
         let secondD = productData.filter((product) => {
             return (
-                value && product && product.category && product.title.toLowerCase().includes(value)
+                product.description.toLowerCase().includes(value.toLowerCase()) || product.price.toString().includes(value.toString()) || product.category.toLowerCase().includes(value.toLowerCase()) || product.title.toLowerCase().includes(value.toLowerCase())
             )
         })
 
-        setProductData(secondD)
-    }
-
-    const handleInput = (value) => {
-        setInput(value);
-        fetchData(value)
+        setFilterData(secondD);
     }
 
     useEffect(() => {
@@ -40,7 +38,9 @@ function Product(props) {
             console.log("componentWillUnmount");
         }
 
-    }, [isLoading])
+    }, [isLoading]);
+
+    const finalData = filterData.length > 0 ? filterData : productData
 
     return (
         <>
@@ -48,12 +48,11 @@ function Product(props) {
                 <div id='navbar'>
                     <form action='#' id='base'>
                         <img src={companyLogo} alt="" id='logo' />
-                        <input type='text' id='searchbar' placeholder='Type to search...' value={input} onChange={(e) => handleInput(e.target.value)}></input>
-                        {/* <button id='search' type='submit'>Search</button> */}
+                        <input type='text' id='searchbar' placeholder='Type to search...' onChange={(e) => handleInput(e.target.value)}></input>
                     </form>
                 </div>
                 <div id='products'>
-                    {productData.map((value, index) => {
+                    {finalData.map((value, index) => {
                         return (
                             <div class="product-card">
                                 <div class="badge">Hot</div>
@@ -63,12 +62,14 @@ function Product(props) {
                                 <div class="product-details">
                                     <span class="product-catagory">{value.category}</span>
                                     <h4><a href="">{value.title}</a></h4>
+                                    {/* <p>{value.description}</p> */}
                                     <div class="product-bottom-details">
                                         <div class="product-price"><small>$120.00</small>${value.price}</div>
                                     </div>
                                 </div>
                             </div>)
-                    })}
+                    })
+                    }
                 </div>
             </div >
             }
