@@ -3,19 +3,38 @@ import companyLogo from '../logo.png';
 
 function Product(props) {
     const [isLoading, setIsLoading] = useState(true);
-    const [productData, setProductData] = useState([])
+    const [productData, setProductData] = useState([]);
+    const [input, setInput] = useState("")
+    const [secondData, setSecondData] = useState([]);
+    // let secondData = []
 
     const getData = async () => {
         const response = await fetch('https://fakestoreapi.com/products')
         const data = await response.json();
 
+        console.log(data);
         setProductData(data);
         setIsLoading(false);
 
     }
 
+    const fetchData = async (value) => {
+        let secondD = productData.filter((product) => {
+            return (
+                value && product && product.category && product.title.toLowerCase().includes(value)
+            )
+        })
+        
+        setProductData(secondD)
+    }
+
+    const handleInput = (value) => {
+        setInput(value);
+        fetchData(value)
+    }
+
     useEffect(() => {
-        getData()
+        getData();
 
         return () => {
             console.log("componentWillUnmount");
@@ -29,8 +48,8 @@ function Product(props) {
                 <div id='navbar'>
                     <form action='#' id='base'>
                         <img src={companyLogo} alt="" id='logo' />
-                        <input type='text' id='searchbar' placeholder='Type to search...'></input>
-                        <button id='search' type='submit'>Search</button>
+                        <input type='text' id='searchbar' placeholder='Type to search...' value={input} onChange={(e) => handleInput(e.target.value)}></input>
+                        {/* <button id='search' type='submit'>Search</button> */}
                     </form>
                 </div>
                 <div id='products'>
