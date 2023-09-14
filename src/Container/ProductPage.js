@@ -4,9 +4,7 @@ import companyLogo from '../logo.png';
 function Product(props) {
     const [isLoading, setIsLoading] = useState(true);
     const [productData, setProductData] = useState([]);
-    const [input, setInput] = useState("")
-    const [secondData, setSecondData] = useState([]);
-    // let secondData = []
+    const [input, setInput] = useState("");
 
     const getData = async () => {
         const response = await fetch('https://fakestoreapi.com/products')
@@ -14,7 +12,9 @@ function Product(props) {
 
         console.log(data);
         setProductData(data);
-        setIsLoading(false);
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 500)
 
     }
 
@@ -24,7 +24,7 @@ function Product(props) {
                 value && product && product.category && product.title.toLowerCase().includes(value)
             )
         })
-        
+
         setProductData(secondD)
     }
 
