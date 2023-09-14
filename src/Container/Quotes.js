@@ -26,7 +26,7 @@ function Quotes(props) {
             setIndex(newIndex)
             console.log(qdata.length, newIndex);
         }
-    }
+    } 
 
     const previousQuote = () => {
         let newIndex = index - 1;
