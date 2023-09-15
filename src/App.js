@@ -10,6 +10,7 @@ import Clock from './Container/Clock';
 import ClockFun from './Container/ClockFun';
 import Quotes from './Container/Quotes';
 import Product from './Container/ProductPage';
+import QuotesSearch from "./Container/QuotesSearch";
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
       {/* <Clock /> */}
       {/* <ClockFun /> */}
       {/* <Quotes /> */}
-      <Product />
+      <QuotesSearch />
+      {/* <Product /> */}
     </div>
   );
 }
