@@ -11,6 +11,7 @@ import ClockFun from './Container/ClockFun';
 import Quotes from './Container/Quotes';
 import Product from './Container/ProductPage';
 import QuotesSearch from "./Container/QuotesSearch";
+import ProductPage2 from './Container/ProductPage2';
 
 function App() {
   return (
@@ -23,8 +24,9 @@ function App() {
       {/* <Clock /> */}
       {/* <ClockFun /> */}
       {/* <Quotes /> */}
-      <QuotesSearch />
+      {/* <QuotesSearch /> */}
       {/* <Product /> */}
+      <ProductPage2 />
     </div>
   );
 }

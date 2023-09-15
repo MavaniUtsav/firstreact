@@ -235,3 +235,29 @@ a {
   justify-content: center;
   text-align: start;
 }
+
+#category {
+  margin-top: 3px;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+}
+
+#category span {
+  padding: 5px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 16px;
+  border: 1px solid grey;
+  width: 100%;
+}
+
+#category span:hover {
+  background-color: #363636;
+  color: white;
+  cursor: pointer;
+}
+
+.mystyle {
+  background-color:#363636;
+  color: white;
+}
