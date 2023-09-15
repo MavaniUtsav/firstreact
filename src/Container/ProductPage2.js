@@ -5,7 +5,7 @@ function ProductPage2(props) {
     const [isLoading, setIsLoading] = useState(true);
     const [productData, setProductData] = useState([]);
     const [filterData, setFilterData] = useState([])
-    const [active, setActive] = useState(false);
+    const [active, setActive] = useState('');
 
     const getData = async () => {
         const response = await fetch('https://dummyjson.com/products')
@@ -34,12 +34,13 @@ function ProductPage2(props) {
 
     const handleSearch = (value) => {
         console.log("smart");
-        let element = document.getElementById(value);
+        // let element = document.getElementById(value);
         // if (element.hasAttribute('mystyle')) {
         //     element.removeAttribute('mystyle')
         // }
         // console.log(element);
-        element.classList.toggle('mystyle');
+        // element.classList.toggle('mystyle');
+        setActive(value.target.id)
 
         let secondD;
 
@@ -78,8 +79,8 @@ function ProductPage2(props) {
                 </div>
                 <div id='category'>
                     <span onClick={() => handleSearch('all')} id='all'>All</span>
-                    <span onClick={() => handleSearch('smartphones')} id='smartphones'>SMARTPHONES</span>
-                    <span onClick={() => handleSearch('laptops')} id='laptops'>LAPTOPS</span>
+                    <span onClick={() => handleSearch('smartphones')} id='smartphones' className={active == 'smartphones' ? 'active' : undefined}>SMARTPHONES</span>
+                    <span onClick={() => handleSearch('laptops')} id='laptops' className={active == 'laptops' ? 'active' : undefined}>LAPTOPS</span>
                     <span onClick={() => handleSearch('fragrances')} id='fragrances'>FRAGRANCES</span>
                     <span onClick={() => handleSearch('skincare')} id='skincare'>SKINCARE</span>
                     <span onClick={() => handleSearch('groceries')} id='groceries'>GROCERIES</span>
