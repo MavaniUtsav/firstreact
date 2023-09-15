@@ -115,3 +115,5 @@ function ProductPage2(props) {
 
 export default ProductPage2;
 
+// Keep a new state such as "selectedButton" then set this state with clicked button's id. Now, Look for if a button's "id" is equal to the "selectedButton" state. If yes, highlight it with a conditional class.
+
