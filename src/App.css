@@ -237,8 +237,8 @@ a {
 }
 
 #category {
-  margin-top: 3px;
-  /* border: 1px solid black; */
+  padding: 5px;
+  border-bottom: 1px solid grey;
   display: flex;
   justify-content: space-between;
 }
@@ -260,4 +260,13 @@ a {
 .active {
   background-color:#363636;
   color: white;
+}
+
+#filter {
+  padding: 5px;
+}
+
+#dropdown {
+  height: 26px;
+  width: 150px;
 }

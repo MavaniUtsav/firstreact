@@ -6,6 +6,7 @@ function ProductPage2(props) {
     const [productData, setProductData] = useState([]);
     const [filterData, setFilterData] = useState([])
     const [active, setActive] = useState('');
+    // const [secondD, setSecondD] = useState([]);
 
     const getData = async () => {
         const response = await fetch('https://dummyjson.com/products')
@@ -16,46 +17,44 @@ function ProductPage2(props) {
         setTimeout(() => {
             setIsLoading(false);
         }, 500)
-
     }
 
-    // const handleInput = (value) => {
-    //     console.log("smart");
-    //     // setInput(value);
-    //     // fetchData(value)
-    //     let secondD = productData.filter((product) => {
-    //         return (
-    //             product.description.toLowerCase().includes(value.toLowerCase()) || product.price.toString().includes(value.toString()) || product.category.toLowerCase().includes(value.toLowerCase()) || product.title.toLowerCase().includes(value.toLowerCase())
-    //         )
-    //     })
-
-    //     setFilterData(secondD);
-    // }
-
     const handleSearch = (value) => {
-        console.log("smart");
-        // let element = document.getElementById(value);
-        // if (element.hasAttribute('mystyle')) {
-        //     element.removeAttribute('mystyle')
-        // }
-        // console.log(element);
-        // element.classList.toggle('mystyle');
-        setActive(value.target.id)
-
         let secondD;
 
-        if (value === 'all') {
-            secondD = productData
-        } else {
-            secondD = productData.filter((product) => {
-                return (
-                    product.description.toLowerCase().includes(value.toLowerCase()) || product.price.toString().includes(value.toString()) || product.category.toLowerCase().includes(value.toLowerCase()) || product.title.toLowerCase().includes(value.toLowerCase())
-                )
-            })
+        secondD = productData.filter((product) => {
+            return (
+                product.description.toLowerCase().includes(value.toLowerCase()) || product.price.toString().includes(value.toString()) || product.category.toLowerCase().includes(value.toLowerCase()) || product.title.toLowerCase().includes(value.toLowerCase())
+            )
+        })
+
+        if (value === 'lowtohigh') {
+            secondD = [...productData].sort((a, b) => a.price - b.price);
+        } else if (value === 'hightolow') {
+            secondD = [...productData].sort((a, b) => b.price - a.price);
+        } else if (value === 'atoz') {
+            secondD = [...productData].sort((a, b) => a.title > b.title ? 1 : -1);
+        } else if (value === 'ztoa') {
+            secondD = [...productData].sort((a, b) => a.title > b.title ? -1 : 1);
         }
 
         setFilterData(secondD);
     }
+
+    // const handleFilter = (value) => {
+    //     let filter;
+    //     if (value === 'lowtohigh') {
+    //         filter = [...productData].sort((a, b) => a.price - b.price);
+    //     } else if (value === 'hightolow') {
+    //         filter = [...productData].sort((a, b) => b.price - a.price);
+    //     } else if (value === 'atoz') {
+    //         filter = [...productData].sort((a, b) => a.title > b.title ? 1 : -1);
+    //     } else if (value === 'ztoa') {
+    //         filter = [...productData].sort((a, b) => a.title > b.title ? -1 : 1);
+    //     }
+
+    //     setFilterData(filter);
+    // }
 
     useEffect(() => {
         getData();
@@ -78,13 +77,22 @@ function ProductPage2(props) {
                     </form>
                 </div>
                 <div id='category'>
-                    <span onClick={() => handleSearch('all')} id='all'>All</span>
+                    <span onClick={() => handleSearch('')}>All</span>
                     <span onClick={() => handleSearch('smartphones')} id='smartphones' className={active == 'smartphones' ? 'active' : undefined}>SMARTPHONES</span>
                     <span onClick={() => handleSearch('laptops')} id='laptops' className={active == 'laptops' ? 'active' : undefined}>LAPTOPS</span>
                     <span onClick={() => handleSearch('fragrances')} id='fragrances'>FRAGRANCES</span>
                     <span onClick={() => handleSearch('skincare')} id='skincare'>SKINCARE</span>
                     <span onClick={() => handleSearch('groceries')} id='groceries'>GROCERIES</span>
                     <span onClick={() => handleSearch('home-decoration')} id='home-decoration'>HOME-DECORATION</span>
+                </div>
+                <div id='filter'>
+                    <select name="dropdown" id='dropdown' onChange={(e) => handleSearch(e.target.value)}>
+                        <option value="">-- Select --</option>
+                        <option value="atoz">A to Z</option>
+                        <option value="ztoa">Z to A</option>
+                        <option value="hightolow">Price(High to Low)</option>
+                        <option value="lowtohigh">Price(Low to High)</option>
+                    </select>
                 </div>
                 <div id='products'>
                     {finalData.map((value, index) => {
