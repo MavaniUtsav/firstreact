@@ -12,6 +12,8 @@ import Quotes from './Container/Quotes';
 import Product from './Container/ProductPage';
 import QuotesSearch from "./Container/QuotesSearch";
 import ProductPage2 from './Container/ProductPage2';
+import ModernToDo from './Container/ModernToDo';
+import { Provider } from 'react-redux';
 
 function App() {
   return (
@@ -26,7 +28,8 @@ function App() {
       {/* <Quotes /> */}
       {/* <QuotesSearch /> */}
       {/* <Product /> */}
-      <ProductPage2 />
+      {/* <ProductPage2 /> */}
+      <ModernToDo />
     </div>
   );
 }
